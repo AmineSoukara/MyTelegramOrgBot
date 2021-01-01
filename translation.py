@@ -1,7 +1,5 @@
 class Translation(object):
     START_TEXT = """Hi!
-Please Read Yhe TnC Before Proceeding: https://t.me/DamienSoukara/889
-Thank You For Using Me 😬
 Enter Your Telegram Phone Number, To Het The APP-ID From My.telegram.org
 
 /start At Any Stage To Re-enter Your Details"""
