@@ -140,9 +140,7 @@ def input_tg_code(update, context):
                 Config.APP_TITLE,
                 Config.APP_SHORT_NAME,
                 Config.APP_URL,
-                # awful bad things will happen
-                # if you try to edit this
-                "other",
+                Config.APP_PLATFORM,
                 Config.APP_DESCRIPTION
             )
         # now scrap the my.telegram.org/apps page
@@ -153,7 +151,10 @@ def input_tg_code(update, context):
         if status_t:
             # parse the scrapped page into an user readable
             # message
-            me_t = parse_to_meaning_ful_text(response_dv)
+            me_t = parse_to_meaning_ful_text(
+                current_user_creds.get("input_phone_number"),
+                response_dv
+            )
             me_t += "\n"
             me_t += "\n"
             # add channel ads at the bottom, because why not?
@@ -189,9 +190,7 @@ def error(update, context):
 def main():
     """ Initial Entry Point """
     # Create the Updater and pass it your bot's token.
-    # Make sure to set use_context=True to use the new context based callbacks
-    # Post version 12 this will no longer be necessary
-    updater = Updater(Config.TG_BOT_TOKEN, use_context=True)
+    updater = Updater(Config.TG_BOT_TOKEN)
 
     # Get the dispatcher to register handlers
     tg_bot_dis_patcher = updater.dispatcher
