@@ -17,6 +17,7 @@
 
 """ STEP FOUR """
 
+import random
 import requests
 
 
@@ -29,7 +30,7 @@ def create_new_tg_app(
         app_platform,
         app_desc
 ):
-    #pylint: disable-msg=too-many-arguments
+    # pylint: disable-msg=too-many-arguments
     """ creates a new my.telegram.org/apps
     using the provided parameters """
     request_url = "https://my.telegram.org/apps/create"
@@ -41,7 +42,7 @@ def create_new_tg_app(
         "app_title": app_title,
         "app_shortname": app_shortname,
         "app_url": app_url,
-        "app_platform": app_platform,
+        "app_platform": random.choice(app_platform),
         "app_desc": app_desc
     }
     response_c = requests.post(
